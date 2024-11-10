@@ -59,7 +59,7 @@ from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
 scaler.fit(data_log)
 data_normalized = scaler.transform(data_log)
-data_normalized = pd.DataFrame(data_normalized, index = data_log.index, columns=dat
+data_normalized = pd.DataFrame(data_normalized, index = data_log.index, columns=data_log.columns)
 data_normalized.describe().round(2)
 
 import matplotlib.pyplot as plt
@@ -77,7 +77,7 @@ plt.xlabel('K')
 plt.ylabel('SSE')
 plt.style.use('ggplot')
 sns.pointplot(x=list(sse.keys()), y = list(sse.values()))
-plt.text(4.5, 60, "Largest Angle", bbox = dict(facecolor = 'lightgreen', alpha = 0.
+plt.text(4.5, 60, "Largest Angle", bbox = dict(facecolor = 'lightgreen', alpha = 0.5))
 plt.show()
 
 kmeans = KMeans(n_clusters=5, random_state=1)
